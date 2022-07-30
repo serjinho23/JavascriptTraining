@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculate</title>
+    </head>
+    <body><div>Создайте четыре функции для арифметических действий: (Add – сложение, Sub – вычитание, Mul – умножение, Div – деление). Каждая функция должна принимать два параметра и выводить на экран результат вычисления. Функция деления должна делать проверку деления на ноль. Пользователь вводит значения, над которыми хочет произвести операцию и выбрать саму операцию.</div>
+        <hr>
+        <script>
+          function add(a, b){
+              return +a + +b;
+          }
+          function sub(a, b){
+              return a - b;
+          }
+          function mul(a, b){
+              return a * b;
+          }
+          function div(a, b){
+          if(b==0){
+              alert("На ноль делить нельзя");
+          }
+          else{
+              return a/b;
+          }
+          }
+          let a=prompt("Введите любое значение");
+          let sign = prompt("Введите знак арифметической операции: + - * /");
+            let b=prompt("Введите любое значение");
+            let result=undefined;
+            switch (sign) {
+            case "+":
+                result = add(a, b);
+                break;
+            case "-":
+                result = sub(a, b);
+                break;
+            case "*":
+                result = mul(a, b);
+                break;
+            case "/":
+                result = div(a, b);
+                break;
+            }
+            if(result !=undefined)
+            document.write(a+sign+b+"="+result);
+        </script>
+    </body>
+</html>

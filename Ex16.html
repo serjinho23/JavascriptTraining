@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><div>Разработайте игру «Угадай значение». Страница загадывает число от 1 до 100. Пользователь в поле ввода вводит значение пытаясь угадать загаданное число. Если пользователь не угадывает значение, страница выводит сообщение с текстом «загаданное значение больше введенного вами» или «загаданное значение меньше введенного вами». Подумайте, как можно применить DHTML в таком приложении.</div>   
+    <hr>
+    <script>
+        let number = {};
+    window.onload = function () {
+    number.rand = Math.floor(Math.random() * 100) + 1;
+    number.p = document.getElementById("p");
+    number.play = document.getElementById("play");
+    play.onclick = function () {
+        number.res = document.getElementById("number").value;
+        if (number.res < number.rand) {
+            number.p.innerHTML = "Вы проиграли!Введёное значение"+" "+number.res+" "+"меньше загаданного" + ""
+        }
+        else if (number.res > number.rand) {
+            number.p.innerHTML = "Вы проиграли!Введёное значение"+" "+number.res+" "+"больше загаданного " + ""
+        }
+        else {
+            number.p.innerHTML = "Вы выиграли!Введёное значение"+" "+number.res+" "+"равное загаданному "
+        }
+    }
+}   
+    </script> 
+</head>
+<body>
+    <p>Угадайте значение от 1 до 100</p>
+    <input type="button" value="Угадать!" id="play">
+    <input type="number" name="Число" id="number">
+    <p id="p"></p>
+</body>
+</html>

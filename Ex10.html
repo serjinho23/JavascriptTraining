@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body><div>Создайте функцию конструктор, которая создает объект со свойством экземпляра, свойством функции-конструктора, с методом экземпляра и методом функции-конструктора. Имена выберите произвольно.</div>
+        <script>
+        function Obj(h,w){
+            this.height = h;
+            this.width = w;
+        }
+        Obj.prototype.getArea=function(){
+           return this.height * this.width;
+        }
+        Obj.prototype.name="someObject";
+        Obj.prototype.toString=function(){
+            return "Высота объекта:"+ this.height+"; Ширина объекта:"+this.width;
+        }
+        let a=new Obj(180, 200);
+        let b=new Obj(50, 150);
+        document.write("Объект 1:"+a);
+        document.write("<br />"+"Объект 2:"+b);
+        document.write("<hr />");
+        document.write("Площадь объекта:"+a.getArea()+"<br />"+"Имя объекта:"+a.name);
+        document.write("<br />"+"Площадь объекта 2:"+b.getArea()+"<br />"+"Имя объекта 2:"+b.name);
+        a.name="aObJect";
+        b.name="bObject";
+        b.getArea=function(){
+            return this.height+this.width;
+        }
+        document.write("<hr />"+"Имя объекта:"+a.name);
+        document.write("<br />"+"Имя объекта 2:"+b.name+"<br />"+"Сумма параметров объекта 2:"+b.getArea());
+        </script>
+        <hr>
+        <div>Разработайте функцию-конструктор, которая будет создавать объект Human (человек). Создайте массив объектов и реализуйте функцию, которая будет сортировать элементы массива по значению свойства Age по возрастанию или по убыванию.</div>
+        <script>
+             function human(name,age){
+                 this.name=name;
+                 this.age=age;
+                 human.city = "Zhytomyr";
+                 human.country = "Ukraine";
+             }
+             let arr=[
+                 new human("Коля", 15),
+                 new human("Вася", 7),
+                 new human("Петя", 22),
+                 new human("Леша", 12)
+             ]
+             human.prototype.toString = function() {
+            return this.name + ", "+ this.age +" " + human.city +" "+ human.country+ "<br />";
+             }
+             document.write("<hr />");
+             document.write(arr);
+             document.write("<hr />");
+             let upAge=arr.sort(function(human1,human2){
+                 return human1.age-human2.age;
+             });
+             upAge.forEach(function(human){
+                 document.write(human.toString());
+             });
+        </script>
+        <hr>
+    <div>Создайте функцию-конструктор Box (коробка) для создания объекта со свойствами Height (высота), Width (ширина), Depth (глубина) и Material (материал). Также, в объекте должны быть методы Volume – для получения объема и equals() – для сравнения объектов, объекты должны считаться равными, если содержат одинаковые значения в свойстве Material.</div>
+        <script>
+            let h1 = prompt("Введите высоту 1");
+            let w1 = prompt("Введите ширину 1");
+            let d1 = prompt("Введите глубину 1");
+            let m1 = prompt("Введите материал 1");
+    
+            let h2 = prompt("Введите высоту 2");
+            let w2 = prompt("Введите ширину 2");
+            let d2 = prompt("Введите глубину 2");
+            let m2 = prompt("Введите материал 2"); 
+    
+            function box(height, width, depth, material) {
+                this.height = height;
+                this.width = width;
+                this.depth = depth;
+                this.material = material;
+            }
+    
+            box.prototype.Volume = function () {
+                return this.height * this.width * this.depth;
+            }
+    
+            box.prototype.equals = function (otherObj) {
+                if (this.material === otherObj.material) {
+                    return true;
+                }
+                return false;
+            }
+    
+            let box1 = new box(h1, w1, d1, m1);
+            let box2 = new box(h2, w2, d2, m2);
+            document.write("<hr />");
+    
+            document.write("Объем первой коробки равняется " + box1.Volume() + "см<sup>3</sup><br/>");
+            document.write("Объем второй коробки равняется " + box2.Volume() + "см<sup>3</sup><br/>");
+    
+            let res = box1.equals(box2);
+            document.write("Материал первой коробки == материал второй коробка -> " + res);
+    
+        </script>
+    </body>
+</html>

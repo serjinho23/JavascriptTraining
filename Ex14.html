@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body><div>Создайте приложение, которое от пользователя должно принимать строки в формате «10 + 20» или «50 - 6». При получении такой строки приложение должно отобразить результат арифметического действия.</div>
+    <script>
+    let a=prompt("Введите любое выражения вычитания или поиска суммы");
+    let pat = /[\-+]/;
+    let textA = a.match(pat);
+    let res = a.split(pat);
+    let x = parseInt(res[0]);
+    let y = parseInt(res[1]);
+    let result = 0;
+    switch (textA[0]) {
+    case "+": result = x + y;
+    break;
+    case "-": result = x - y;
+    break;
+    }
+    document.write(x + textA[0] + y + "=" + result);    
+    </script>
+</body>
+</html>

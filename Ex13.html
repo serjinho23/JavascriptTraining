@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body><div>Разработайте страницу, которая будет выводить сумму двух GET параметров a и b. Например, если на страницу заходят по адресу, page.html?a=100&b=200, то в теле страницы должно отображаться сообщение «сумма 300».</div>
+    <script>
+        function getQueryString() {
+            let args = {};                                
+            let query = location.search.substring(1);       
+            let pairs = query.split("&");                   
+            for (let i = 0; i < pairs.length; i++) {
+                let pos = pairs[i].indexOf('=');            
+                if (pos == -1) {                            
+                    continue;
+                }
+                let argname = pairs[i].substring(0, pos);   
+                let value = pairs[i].substring(pos + 1);    
+                args[argname] = value;                      
+            }
+            return args;
+        }
+        function result() {
+            let args = getQueryString();
+            let e = document.createElement("p");
+            let sum = 0;  
+            args.a = parseInt(args.a);
+            args.b = parseInt(args.b);
+            sum = args.a + args.b;
+            e.innerHTML += "Сумма значений = " + sum;
+            document.body.appendChild(e);
+        }
+        result()
+    </script>
+</body>
+</html>

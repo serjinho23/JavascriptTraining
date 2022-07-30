@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ex7</title>
+    </head>
+    <body><div>Требуется: создать массив размерностью N элементов, заполнить его произвольными целыми значениями. Вывести наибольшее значение массива, наименьшее значение массива, общую сумму элементов, среднее арифметическое всех элементов, вывести все нечетные значения.</div>
+        <hr>
+        <script>
+              let arr=[],i;
+              for (i=0; i<=10; i++){  
+                  arr.push(Math.round(Math.random()*200)); 
+              }
+              document.write("Массив полученный с помощью генератора рандомных чисел:"+arr+"<br />"+"Длина массива="+arr.length);
+              arr.reverse();
+              document.write("<br />"+"<hr />"+"Массив в обратном порядке:"+arr);
+              let min=Number.POSITIVE_INFINITY;
+              let max=Number.NEGATIVE_INFINITY;
+              let sum=0;
+              let xc=0;
+              for (i=0; i<=10; i++){
+              if(min>arr[i]){
+                  min=arr[i];
+              }
+              if(max<arr[i]){
+                  max=arr[i];
+              }
+              sum+=arr[i];
+              xc=Math.round(sum/arr.length);
+              }
+              let ODD=Array();
+              for (i=0; i<=10; i++){
+              if(arr[i]%2 != 0){
+                  ODD.push(arr[i]);
+              }
+              }
+              document.write("<br />"+"<hr />"+"Минимальное значение массива ="+min);
+              document.write("<br />"+"Максимальное значение массива ="+max);
+              document.write("<br />"+"<hr />"+"Сумма всех элементов массива ="+sum);
+              document.write("<br />"+"<hr />"+"Среднее арифметическое значение ="+xc)
+              document.write("<br />"+"<hr />"+"Нечетные значения массива :"+ODD)
+        </script>
+        <hr>
+        <div>Требуется: создать двумерный массив элементов размерностью 5х5 и заполнить его произвольными целочисленными значениями. По главной диагонали все числа со знаком (-) заменить на 0, а числа со знаком (+) на число 1.</div>
+        <script>
+            document.write("<hr />");
+          let mat = new Array(5); 
+          for (let r = 0; r < 5; r++) {
+               mat[r] = new Array(5); 
+               }
+            for (let r = 0; r < 5; r++) {
+                for (let c = 0; c < 5; c++) { 
+                    mat[r][c] = Math.round((Math.random()*51)-25);
+                    }
+                  } 
+                  for (let r = 0; r < 5; r++) { 
+                      for (let c = 0; c < 5; c++) { 
+                          document.write(mat[r][c] + "&emsp;"); 
+                          }
+                          document.write("<br />");
+                         }
+                         document.write("<hr />") ; 
+            for (let r = 0; r < 5; r++) { 
+                for (let c = 0; c < 5; c++) { 
+                    if (r == c) { 
+                        if (mat[r][c] <= 0) {
+                             mat[r][c] = 0; 
+                        }
+                         else { mat[r][c] = 1;
+                        }
+                     }
+             document.write(mat[r][c] + "&emsp;"); 
+             }
+            document.write("<br />");
+              }
+        </script>
+    </body>
+</html>
